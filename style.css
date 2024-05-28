@@ -1,0 +1,25 @@
+body {
+  color: rgb(218, 107, 107);
+  background-color: rgb(254, 250, 245);
+  text-align: center;
+}
+
+#game-container {
+    display: table;
+    background-color: rgb(216, 200, 200);
+      margin-left: auto;
+      margin-right: auto;
+    display:flex;
+    flex-wrap: wrap;
+    max-width: 250px;
+}
+.row {
+    display: table-row;
+  }
+  .row-letter {
+    display: table-cell;
+    padding: 10px;
+    border: rgb(246, 245, 245) solid;
+    width: 50px;
+    height: 60px;
+  }
