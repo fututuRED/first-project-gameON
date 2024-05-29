@@ -12,8 +12,8 @@
         <h1>Hej/y(W)ord</h1>
     </div>
 <div id="menu">
-  <button>time</button>
-  <button>Score</button>
+  <button class="time">time</button>
+  <button class="score">Score</button>
  </div>
     <table id="game-container">
 <tbody>
@@ -43,7 +43,9 @@
 </tbody>
 
       </table>
-
+      <div id="start">
+        <button>Start</button>
+      </div>
 <div id="hint">
 </div>
 
@@ -85,13 +87,11 @@
 <button data-key="v">v</button>
 <button data-key="b">b</button>
 <button data-key="n">n</button>
-<button data-key="enter">enter</button>
+<button id="enter" data-key="enter">enter</button>
 </div>
 </div>
 
-<div id="start-game">
-  <button>Start</button>
-</div>
+
     <script src="./javascrip/indjs.js"></script>
     <script src="./javascrip/words.js"></script>
   </body>

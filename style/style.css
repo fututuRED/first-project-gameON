@@ -1,7 +1,19 @@
+@import url('https://fonts.cdnfonts.com/css/bitstream-vera-sans');
+                
 body {
   color: rgb(218, 107, 107);
   background-color: rgb(254, 250, 245);
   text-align: center;
+  font-family: 'Bitstream Vera Sans', sans-serif, 'Quiet Sans','Aller', 'Artico'; 
+  /* background-image: url(../picture/danish-english.jpeg);
+  background-size:cover;
+  backdrop-filter: saturate(30%) ;
+  background-blend-mode:luminosity; */
+ 
+}
+
+#screenSaver {
+  width:10px;
 }
 #menu {
   margin-bottom: 1rem;
@@ -14,15 +26,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color:unset;
 }
 .row {
     display:flex;
     flex-direction: row;
   }
-  .letter {
+ .letter {
     border:3px solid black;
     width: 3rem;
     height:4rem;
+    font-size: 3rem;
+    color:black
+
   }
 #hint {
   height: 4rem;
@@ -33,6 +49,9 @@ body {
   border-width:medium;
   margin: 2rem;
 width:auto;
+}
+#start {
+  margin-top: 1rem;
 }
 #keyboard-container {
     width:100%;
@@ -47,4 +66,18 @@ width:auto;
     border: 1px solid rgb(51, 7, 7);
     padding: 0.5rem;
     cursor:pointer;
+}
+
+.correct-position {
+  background-color: green!important;
+}
+.wrong-position {
+  background-color: rgb(255, 200, 0)!important;
+}
+.incorrect {
+  background-color: rgb(52, 50, 50)!important;
+}
+.letter.completed {
+  pointer-events: none; /* Prevents mouse interactions */
+
 }
