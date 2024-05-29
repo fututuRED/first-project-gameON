@@ -69,15 +69,14 @@ width:auto;
 }
 
 .correct-position {
-  background-color: green!important;
+  background-color: green;
 }
 .wrong-position {
-  background-color: rgb(255, 200, 0)!important;
+  background-color: rgb(255, 200, 0);
 }
 .incorrect {
-  background-color: rgb(52, 50, 50)!important;
+  background-color: rgb(52, 50, 50);
 }
-.letter.completed {
+/* .letter.completed {
   pointer-events: none; /* Prevents mouse interactions */
-
-}
+} */
