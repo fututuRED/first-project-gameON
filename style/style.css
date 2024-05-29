@@ -1,0 +1,50 @@
+body {
+  color: rgb(218, 107, 107);
+  background-color: rgb(254, 250, 245);
+  text-align: center;
+}
+#menu {
+  margin-bottom: 1rem;
+  display:flex;
+  flex-direction:row ;
+  justify-content: space-between;
+}
+#game-container {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.row {
+    display:flex;
+    flex-direction: row;
+  }
+  .letter {
+    border:3px solid black;
+    width: 3rem;
+    height:4rem;
+  }
+#hint {
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  border:2px solid black;
+  border-width:medium;
+  margin: 2rem;
+width:auto;
+}
+#keyboard-container {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.keyboard-row button {
+    background-color:rgb(189, 187, 187);
+    color: rgb(31, 31, 97);
+    outline: none;
+    border: 1px solid rgb(51, 7, 7);
+    padding: 0.5rem;
+    cursor:pointer;
+}
