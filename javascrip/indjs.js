@@ -1,18 +1,18 @@
 let correctWordObject;
-let correctWord;
-let hintText = document.querySelectorAll(".hint");
+let correctWord = "";
+hintText = document.querySelectorAll(".hint");
 let timeBtn;
 let scoreBtn;
 let startBtn;
-let currentRow = 0;
-let currentLetter = 0;
+let currentRow;
+let currentLetter;
 let timer;
 let score = 0;
-
-const rows = document.querySelector(".row:not(.finish)");
-const letters = rows.querySelectorAll(".letter");
+const wordText = document.querySelectorAll(".words.name");
 let enteredWord = "";
-
+  // const rows = document.querySelector(".row:not(.finish)");
+  // const letters = rows.querySelectorAll(".letter");
+  // const enteredWord = [...letters].map((x) => x.textContent);
 document.querySelectorAll("[data-key]").forEach((button) => {
   button.addEventListener("click", function () {
     const key = this.getAttribute("data-key");
@@ -21,12 +21,15 @@ document.querySelectorAll("[data-key]").forEach((button) => {
 });
 
 document.addEventListener("keydown", function (event) {
+  const rows = document.querySelector(".row:not(.finish)");
+  const letters = rows.querySelectorAll(".letter");
   const key = event.key;
   if (key === "backspace" || key === "delete") {
     event.preventDefault();
     handleKeyPress("del");
   } else if (key === "Enter") {
     handleKeyPress("enter");
+    checkGuess(rows, letters);
   } else {
     handleKeyPress(event.key.toLowerCase());
   }
@@ -34,26 +37,40 @@ document.addEventListener("keydown", function (event) {
 
 function handleKeyPress(key) {
   const rows = document.querySelector(".row:not(.finish)");
-  if (!rows) return;
   const letters = rows.querySelectorAll(".letter");
+  console.log("key pressed:", key);
   if (key === "enter") {
-    checkGuess();
-    nextRow();
+    console.log("executing checkGuess.");
+    checkGuess(rows, letters);
   } else if (key === "del" || key === "backspace") {
-    deleteLastLetter();
+    deleteLastLetter(letters);
   } else {
-    if (/^[a-zA-Z]$/.test(key) && letters < 4) {
+    if (
+      currentLetter < letters.length &&
+      !letters[currentLetter].hasAttribute("data-completed")
+    ) {
       letters[currentLetter].textContent = key.toUpperCase();
       currentLetter++;
     }
+    else if(/^[a-zA-Z]$/.test(key)){ 
+      const rows = document.querySelector(".row:not(.finish)");
+      const letters = rows.querySelectorAll(".letter");
+      if (currentLetter < letters.length) {
+        letters[currentLetter].textContent = key.toUpperCase(); // Assuming you want uppercase letters displayed
+        currentLetter++;
+      }
+    }
+    
   }
 }
 
-function deleteLastLetter() {
+
+// } else if (/^[a-zA-Z]$/.test(key) && currentLetter < 4) {
+
+
+function deleteLastLetter(letters) {
   if (currentLetter > 0) {
     currentLetter--;
-    const rows = document.querySelector(".row:not(.finish)");
-    const letters = rows.querySelectorAll(".letter");
     letters[currentLetter].textContent = "";
   }
 }
@@ -61,20 +78,12 @@ function deleteLastLetter() {
 function initializeGame() {
   correctWordObject = words[Math.floor(Math.random() * words.length)];
   correctWord = correctWordObject.name.toLowerCase();
-  currentRow = 0;
+  currentRow = 1;
   currentLetter = 0;
   score = 0;
   startBtn = document.querySelector("#start");
   startBtn.addEventListener("click", startGame, { once: true });
 
-  resetGameBoard();
-
-  currentRow = 1;
-  currentLetter = 0;
-
-  console.log("Game initialized. Ready to start.");
-
-  startBtn.disabled = false;
 }
 
 document.addEventListener("DOMContentLoaded", initializeGame);
@@ -91,6 +100,15 @@ function startGame() {
   startBtn.disabled = true;
 
   console.log("New game started.", "The word to guess:", correctWord);
+  document.getElementById("start").classList.add("hidden")
+}
+
+function resetGameBoard() {
+  const letterCells = document.querySelectorAll("#game-container .letter");
+  letterCells.forEach((cell) => {
+    cell.textContent = ""; // Clear text content of each cell
+    cell.classList.remove("correct-position", "wrong-position", "incorrect"); // Remove any styling from previous game
+  });
 }
 
 function enableStartButton() {
@@ -100,23 +118,12 @@ function enableStartButton() {
   }
 }
 
-function resetGameBoard() {
-  const letterCells = document.querySelectorAll("#game-container .letter");
-  letterCells.forEach((cell) => {
-    cell.textContent = "";
-    cell.classList.remove("correct-position", "wrong-position", "incorrect"); // Remove any styling from previous game
-  });
-}
-
-function checkGuess() {
-  const rows = document.querySelector(".row: not(.finish)");
-  const letters = rows.querySelector(".letter");
-
-  let enteredWord = Array.from(rows)
+function checkGuess(rows, letters) {
+  let enteredWord = Array.from(letters)
     .map((cell) => cell.textContent.toLowerCase())
     .join("");
-
   letters.forEach((cell, index) => {
+    console.log("checkGuess is in the making.");
     if (enteredWord[index] === correctWord[index]) {
       cell.classList.add("correct-position");
     } else if (correctWord.includes(enteredWord[index])) {
@@ -125,24 +132,34 @@ function checkGuess() {
       cell.classList.add("incorrect");
     }
   });
+  if(enteredWord ===correctWord )
+    {
+      document.getElementById("keyboard-container").classList.add("hidden")
+      document.getElementByClassName("keyboard-row").classList.add("hidden");
+  
+rows.textContent =""
+    }
+  markRowCompleted(rows);
 
-  markRowCompleted(currentRow - 1);
   nextRow();
 }
 
-function markRowCompleted(rows) {
-  rows.classList.add(".finish");
+function markRowCompleted(currentRow) {
+  //  if (!currentRow == document.querySelector(".row:not(.finish)"))
+  currentRow.classList.add("finish");
+  // currentRow ++;
 }
 
 function nextRow() {
-  const maxRows = document.querySelector(".row:not(.finish)").length;
-  if (rows < maxRows) {
-    rows++;
-  } else {
-    console.log("Game Over");
-  }
+  // currentRow++;
+  currentLetter = 0;
+  // const rows = document.querySelectorAll(".row:not(.finish)");
+  // handleKeyPress()
+  // resetGameBoard ()
+  // nextWord()
 }
 
+function nextWord() {}
 // //END GAME
 
 // /**
@@ -152,13 +169,11 @@ function nextRow() {
 //  * }
 //  */
 
-// // const start = () =>{
-// //   //WHAT TO DISPLAY ??
-// // initGame();
-// // }
-// //MOST IMPORTANT SECTION
+// const start = () =>{
+//   //WHAT TO DISPLAY ??
 
-// // const initGame = () => {
-// //   initTimer (30);
-// // let randomWord= words[Math.floor(Math.random()*words.length)];
-// // let wordArray=randomWord.word.split("");{{{[[{{}}]]}}}
+// // MOST IMPORTANT SECTION
+// const initGame = () => {
+//   initTimer (30);
+// let randomWord= words[Math.floor(Math.random()*words.length)];
+// let wordArray=randomWord.word.split("")}
