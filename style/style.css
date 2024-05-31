@@ -1,71 +1,73 @@
-@import url('https://fonts.cdnfonts.com/css/bitstream-vera-sans');
-                
+@import url("https://fonts.cdnfonts.com/css/bitstream-vera-sans");
+
 body {
   color: rgb(218, 107, 107);
   background-color: rgb(254, 250, 245);
   text-align: center;
-  font-family: 'Bitstream Vera Sans', sans-serif, 'Quiet Sans','Aller', 'Artico'; 
+  font-family: "Bitstream Vera Sans", sans-serif, "Quiet Sans", "Aller",
+    "Artico";
   /* background-image: url(../picture/danish-english.jpeg);
   background-size:cover;
   backdrop-filter: saturate(30%) ;
   background-blend-mode:luminosity; */
- 
 }
 
 #screenSaver {
-  width:10px;
+  width: 10px;
 }
 #menu {
   margin-bottom: 1rem;
-  display:flex;
-  flex-direction:row ;
-  justify-content: space-between;
 }
 #game-container {
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color:unset;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: unset;
 }
 .row {
-    display:flex;
-    flex-direction: row;
-  }
- .letter {
-    border:3px solid black;
-    width: 3rem;
-    height:4rem;
-    font-size: 3rem;
-    color:black
-
-  }
+  display: flex;
+  flex-direction: row;
+}
+.letter {
+  border: 3px solid black;
+  width: 3rem;
+  height: 4rem;
+  font-size: 3rem;
+  color: black;
+}
 #hint {
   height: 4rem;
   display: flex;
   flex-direction: column;
-  align-items:center;
-  border:2px solid black;
-  border-width:medium;
-  margin: 2rem;
-width:auto;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-width: medium;
+  margin: 3rem;
+  text-align: center;
+  width: auto;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  background-color: rgb(68, 68, 99);
+  color: whitesmoke;
 }
 #start {
   margin-top: 1rem;
 }
 #keyboard-container {
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .keyboard-row button {
-    background-color:rgb(189, 187, 187);
-    color: rgb(31, 31, 97);
-    outline: none;
-    border: 1px solid rgb(51, 7, 7);
-    padding: 0.5rem;
-    cursor:pointer;
+  background-color: rgb(189, 187, 187);
+  color: rgb(31, 31, 97);
+  outline: none;
+  border: 1px solid rgb(51, 7, 7);
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
 .correct-position {
@@ -78,5 +80,5 @@ width:auto;
   background-color: rgb(52, 50, 50);
 }
 .hidden {
-display:none;
+  display: none;
 }
