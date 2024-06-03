@@ -6,17 +6,13 @@ body {
   text-align: center;
   font-family: "Bitstream Vera Sans", sans-serif, "Quiet Sans", "Aller",
     "Artico";
-  /* background-image: url(../picture/danish-english.jpeg);
-  background-size:cover;
-  backdrop-filter: saturate(30%) ;
-  background-blend-mode:luminosity; */
 }
 
 #screenSaver {
   width: 10px;
 }
-#menu {
-  margin-bottom: 1rem;
+h1 {
+  font-size: 1.5rem;
 }
 #game-container {
   width: 100%;
@@ -24,52 +20,78 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: unset;
+
+
 }
 .row {
   display: flex;
   flex-direction: row;
 }
 .letter {
-  border: 3px solid black;
-  width: 3rem;
-  height: 4rem;
-  font-size: 3rem;
-  color: black;
+  border: 2px solid rgb(71, 66, 66);
+  width: 0.7rem;
+  height: 1.5rem;
+  font-size: 2rem;
+  color: rgb(20, 12, 12);
+  border-radius: 2px;
+  padding: 0.9rem;
+  margin-bottom: 0.4rem;
+  margin-left: 0.4rem;
 }
 #hint {
-  height: 4rem;
+  height: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
+  border: none;
   border-width: medium;
-  margin: 3rem;
+  margin: 1rem;
   text-align: center;
   width: auto;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bolder;
-  background-color: rgb(68, 68, 99);
-  color: whitesmoke;
+  color: rgb(68, 68, 99);
+  background-color: transparent;
 }
-#start {
-  margin-top: 1rem;
-}
+
 #keyboard-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.keyboard-row button {
-  background-color: rgb(189, 187, 187);
+#enter {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+.key-button {
+  background-color: rgb(223, 211, 211);
   color: rgb(31, 31, 97);
   outline: none;
-  border: 1px solid rgb(51, 7, 7);
-  padding: 0.5rem;
   cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid;
+  padding: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+#menu {
+  margin-bottom: 1rem;
+}
+.menu-button {
+  background-color: #ee7b45;
+  border: none;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 4px 2px;
+  border-radius: 300px;
 }
 
+button #score {
+  border-radius: ;
+}
 .correct-position {
   background-color: green;
 }

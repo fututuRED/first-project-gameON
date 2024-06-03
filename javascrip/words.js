@@ -1,4 +1,4 @@
-// one array of 14 objects 3 keys : - name - hint - translation
+
 const words = [
   {
     name: "seks",
