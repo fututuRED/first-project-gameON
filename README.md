@@ -1,11 +1,17 @@
 A crossy-version of "Wordle"
 
 <h1>Hej/y (W)ord</h1>
-<a href: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Xeu9MFaRplj1X0z84md-MQ.jpeg">danish licence </a>
 
-DON'T BE AFRAID
+![danish-english-ajusté](https://github.com/fututuRED/first-project-gameON/assets/169374419/4b8bd307-7039-4918-bdc7-afb97c4a09c4)
+
+
+DON'T BE SCARED
+
+
 
 Danish and English shares a lot of similarities and this game will hover over some of them! 
+
+[:link: - plAy/sPil](https://github.com/fututuRED/first-project-gameON/deployments)
 
 <h2> About </h2>
   It's been a couple of years that I've started learning Danish and, surprisingly, I haven't found it this much difficult...
